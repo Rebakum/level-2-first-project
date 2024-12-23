@@ -8,7 +8,8 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier . --write",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/app/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only ./src/app/server.ts",
+    "start": "node ./dist/app/server.js"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +19,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.9.0"
+    "joi": "^17.13.3",
+    "mongoose": "^8.9.0",
+    "zod": "^3.25.0-canary.20241210T225910"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -26,6 +29,7 @@
     "@types/eslint__js": "^8.42.3",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
+    "@types/validator": "^13.12.2",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "eslint": "^9.14.0",
@@ -34,6 +38,7 @@
     "prettier": "^3.4.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1"
+    "typescript-eslint": "^8.18.1",
+    "validator": "^13.12.0"
   }
 }
