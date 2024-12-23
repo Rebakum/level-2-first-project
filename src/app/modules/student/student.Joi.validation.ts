@@ -50,5 +50,6 @@ const studentValidationSchema = Joi.object({
   localGuardian: LocalGuardianSchema.required(),
   profileImg: Joi.string().uri().optional(), // Ensures it's a valid URL
   isActive: Joi.string().valid('active', 'blocked').optional(),
+  default: 'active',
 });
 export default studentValidationSchema;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-import { ServerConfig } from '../config';
 import app from './app';
+import { ServerConfig } from './app/config';
 
 async function main() {
   try {

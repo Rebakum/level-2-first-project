@@ -14,13 +14,13 @@ const bloodGroupEnum = z.enum([
 ]);
 
 // Sub-schemas for Guardian, UserName, and LocalGuardian
-const userNameSchema = z.object({
+const userNameValidationSchema = z.object({
   firstName: z.string().nonempty('First name is required'),
   middleName: z.string().optional(),
   lastName: z.string().nonempty('Last name is required'),
 });
 
-const guardianSchema = z.object({
+const guardianValidationSchema = z.object({
   fatherName: z.string().nonempty('Father name is required'),
   fatherOccupation: z.string().nonempty('Father occupation is required'),
   motherName: z.string().nonempty('Mother name is required'),
@@ -31,7 +31,7 @@ const guardianSchema = z.object({
     .regex(/^\+?[0-9]{10,15}$/, 'Invalid phone number format'),
 });
 
-const localGuardianSchema = z.object({
+const localGuardianValidationSchema = z.object({
   name: z.string().nonempty('Name is required'),
   occupation: z.string().nonempty('Occupation is required'),
   contactNo: z
@@ -41,10 +41,10 @@ const localGuardianSchema = z.object({
   address: z.string().nonempty('Address is required'),
 });
 
-// Main Student Schema
-const studentSchema = z.object({
+// Main Student ValidationSchema
+const studentValidationSchema = z.object({
   id: z.string().nonempty('ID is required'),
-  name: userNameSchema,
+  name: userNameValidationSchema,
   gender: genderEnum,
   dateOfBirth: z.string().nonempty('Date of birth is required'),
   email: z.string().email('Invalid email format'),
@@ -59,11 +59,11 @@ const studentSchema = z.object({
   bloodGroup: bloodGroupEnum,
   presentAddress: z.string().nonempty('Present address is required'),
   permanentAddress: z.string().nonempty('Permanent address is required'),
-  guardian: guardianSchema,
-  localGuardian: localGuardianSchema,
+  guardian: guardianValidationSchema,
+  localGuardian: localGuardianValidationSchema,
   profileImg: z.string().url('Invalid URL format').optional(),
   isActive: z.enum(['active', 'blocked']).optional(),
 });
 
-// Export the schema
-export const StudentZodSchema = studentSchema;
+// Export the Validationschema
+export default studentValidationSchema;
