@@ -44,6 +44,7 @@ const localGuardianValidationSchema = z.object({
 // Main Student ValidationSchema
 const studentValidationSchema = z.object({
   id: z.string().nonempty('ID is required'),
+  password: z.string().nonempty('Password is required').max(20),
   name: userNameValidationSchema,
   gender: genderEnum,
   dateOfBirth: z.string().nonempty('Date of birth is required'),
@@ -63,6 +64,7 @@ const studentValidationSchema = z.object({
   localGuardian: localGuardianValidationSchema,
   profileImg: z.string().url('Invalid URL format').optional(),
   isActive: z.enum(['active', 'blocked']).optional(),
+  isDeleted: z.boolean(),
 });
 
 // Export the Validationschema
